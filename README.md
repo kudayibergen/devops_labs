@@ -21,10 +21,10 @@ cd 01-env-makefile
 make curl
 ```
 
-Lab 02
+### Lab 02
 
 Сборка (из корня репо):
-
+``` bash
 docker build -f 02-docker-multistage/Dockerfile -t devops-labs-go:local .
 
 docker run --rm -p 8080:8080 devops-labs-go:local
@@ -32,3 +32,4 @@ docker run --rm -p 8080:8080 devops-labs-go:local
 curl -s http://localhost:8080/ ; echo
 curl -s http://localhost:8080/healthz ; echo
 curl -s http://localhost:8080/livez ; echo
+```
