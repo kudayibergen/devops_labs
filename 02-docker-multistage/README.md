@@ -1,4 +1,3 @@
-```md
 # 02 — Multi-stage Dockerfile (Go)
 
 ## Что это
@@ -11,16 +10,16 @@ Dockerfile с двумя стадиями:
 - быстрее деплой/скачивание
 - меньше лишнего внутри (безопаснее)
 
-## Сборка (запускать из корня репо)
+## Команды (запускать из корня репо)
 ```bash
+# Сборка
 docker build -f 02-docker-multistage/Dockerfile -t devops-labs-go:local .
 
-Запуск
+# Запуск
 docker run --rm -p 8080:8080 devops-labs-go:local
 
-Проверка
+# Проверка
 curl -s http://localhost:8080/ ; echo
 curl -s http://localhost:8080/healthz ; echo
 curl -s http://localhost:8080/livez ; echo
 ```
-
