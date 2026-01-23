@@ -11,7 +11,6 @@
 
 ### Lab 01
 ```bash
-cp 01-env-makefile/.env.example 01-env-makefile/.env
 cd 01-env-makefile
 make run
 
