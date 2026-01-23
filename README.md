@@ -19,6 +19,7 @@ make run
 
 cd 01-env-makefile
 make curl
+```
 
 Lab 02
 
