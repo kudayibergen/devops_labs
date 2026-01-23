@@ -19,4 +19,5 @@ make run
 
 Проверка (в другом терминале)
 make curl
-```bash
+```
+::contentReference[oaicite:0]{index=0}
