@@ -20,4 +20,4 @@ make run
 Проверка (в другом терминале)
 make curl
 ```
-::contentReference[oaicite:0]{index=0}
+```
