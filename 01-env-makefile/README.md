@@ -19,5 +19,4 @@ make run
 
 Проверка (в другом терминале)
 make curl
-```md
 ```bash
