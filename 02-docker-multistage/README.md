@@ -22,3 +22,4 @@ docker run --rm -p 8080:8080 devops-labs-go:local
 curl -s http://localhost:8080/ ; echo
 curl -s http://localhost:8080/healthz ; echo
 curl -s http://localhost:8080/livez ; echo
+```
