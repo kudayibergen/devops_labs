@@ -16,8 +16,7 @@
 ```bash
 cp .env.example .env
 make run
-
+```
 Проверка (в другом терминале)
 make curl
-```
 ```
