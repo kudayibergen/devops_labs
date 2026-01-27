@@ -1,0 +1,13 @@
+replicaCount: 2
+
+env:
+  APP_ENV: "stage"
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "400m"
+    memory: "256Mi"
+
