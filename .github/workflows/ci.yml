@@ -23,8 +23,7 @@ jobs:
         with:
           go-version: "1.22"
           cache: true
-          cache-dependency-path: |
-            01-env-makefile/go.sum
+          cache-dependency-path: 01-env-makefile/go.mod
 
       - name: Run tests (sharded)
         working-directory: 01-env-makefile
