@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  unit-tests:
+    name: Unit tests (shard ${{ matrix.shard }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+          cache: true
+          cache-dependency-path: |
+            01-env-makefile/go.sum
+
+      - name: Run tests (sharded)
+        working-directory: 01-env-makefile
+        run: |
+          echo "Shard ${{ matrix.shard }} of 3"
+          pkgs=$(go list ./... | awk "NR % 3 == (${{ matrix.shard }}-1)")
+          echo "$pkgs"
+          go test -v $pkgs
+
+  docker-build:
+    name: Docker build
+    runs-on: ubuntu-latest
+    needs: [ unit-tests ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build image
+        run: |
+          docker build -f 02-docker-multistage/Dockerfile -t devops-labs-go:ci .
