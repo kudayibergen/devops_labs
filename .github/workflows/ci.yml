@@ -31,6 +31,10 @@ jobs:
         run: |
           echo "Shard ${{ matrix.shard }} of 3"
           pkgs=$(go list ./... | awk "NR % 3 == (${{ matrix.shard }}-1)")
+          if [ -z "$pkgs" ]; then
+            echo "No packages in this shard, skipping"
+            exit 0
+          fi
           echo "$pkgs"
           go test -v $pkgs
 
